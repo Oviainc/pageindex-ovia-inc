@@ -1,3 +1,26 @@
+![Ovia Inc — PageIndex vectorless RAG diagram, from the upstream repository's own assets](assets/vectorless-rag-light.svg)
+
+## Ovia Inc — PageIndex fork
+
+This repository is a fork of [VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex), held in the Ovia Inc collection for evaluation. Modifications by Ovia Inc: this header (Ovia section, story, and reference note), added November 2026 as part of the import pass that widened the collection beyond the weekly digest. Upstream code and content are otherwise unchanged from the fork point, except where a later commit says so. All credit for the project belongs to the upstream authors and contributors; the licence is MIT, as recorded in the upstream repository.
+
+### What this is
+
+PageIndex is a document index for vectorless, reasoning-based retrieval-augmented generation. Instead of embedding chunks into a vector database, it builds a tree index over a long document — the way a human reader uses a table of contents — and lets the model reason its way to the relevant pages. The upstream framing is blunt: vector retrieval matches by similarity, and similarity is not relevance. The project ships as an SDK with local and cloud modes, and a file-system layer extends the same tree reasoning from one document to an entire corpus.
+
+### Story
+
+Long professional documents are where retrieval goes to fail quietly: contracts, manuals, financial reports, and records whose answers sit on one page among hundreds, phrased nothing like the question. The collection's retrieval material leaned on the embedding tradition, and the failure mode of that tradition — plausible chunks, wrong pages — is exactly the one PageIndex was built against. Its counter-proposal is structural: index the document as its own hierarchy and retrieve by reasoning over that structure. We forked VectifyAI/PageIndex in November 2026 because document automation is a service line of the studio, and any serious evaluation of retrieval for client records has to include the approach that skips vectors entirely.
+
+### What we evaluate
+
+- Retrieval accuracy on long, structured documents against an embedding baseline, especially where the answer's wording differs from the question's.
+- Index cost and query cost at corpus scale, using the project's own published comparisons as the claim to test.
+- Behaviour on the document shapes records work actually holds: scanned agreements, statements, manuals, and mixed-language files.
+- The local SDK mode as the evaluation path — own machine, own key, no data leaving the building.
+
+---
+
 <div align="center">
   
 <a href="https://vectify.ai/pageindex" target="_blank">
